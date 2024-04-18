@@ -1,0 +1,54 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block Titulo %} Nome do departamento {% endblock Titulo %}
+
+{% block Conteudo %}
+
+        <!-- Product section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-center">
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" /></div>
+                    <div class="col-md-6">
+                        <div class="small mb-1">SKU: {{ produto.codigo }}</div>
+                        <h1 class="display-5 fw-bolder">{{ produto.nome }}</h1>
+                        <div class="fs-5 mb-5">
+                            <span>R$ {{ produto.preco }}</span>
+                        </div>
+                        <p class="lead">{{ produto.descricao|linebreaks }}</p>
+                        <div class="d-flex">
+
+                            <a href="https://wa.me/5511966609995?text=Gostaria de falar com Murilão {{ produto.nome }}" target="_blank">
+
+                            <button class="btn btn-outline-success flex-shrink-0" type="button">
+                                <i class="bi bi-whatsapp"></i>
+                                Comprar pelo WhatsApp
+                            </button>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Related items section-->
+        <section class="py-5 bg-light">
+            <div class="container px-4 px-lg-5 mt-5">
+                <h2 class="fw-bolder mb-4">Produtos Relacionados</h2>
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                                  <!-- Inicio Produtos -->
+                                {% for produto in produtos_relacionados %}
+                                      {% include 'includes/card_produto1.html' %}
+                                {% endfor %}
+                                  <!-- Inicio Produtos -->
+
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+    </body>
+</html>
+
+{% endblock Conteudo %}

@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block Titulo %}
+Contato Senac Store
+{% endblock Titulo %}
+
+{% block Conteudo %}
+
+  <!-- Header-->
+  <header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Contato</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Fale Conosco preenchendo o formulário abaixo!</p>
+        </div>
+    </div>
+</header>
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+
+        {% if mensagem %} 
+        <div class="alert alert-{% if 'erros' in mensagem %}danger{% else %}success{% endif %}">
+        {{ mensagem }}
+
+    </div>
+    {% endif %}
+
+        <form action="{% url 'contato' %}" method="post">
+            
+            {% csrf_token %}
+            {{ formulario_contato|crispy }}
+
+            <input type="submit" value="Emviar" class="bnt btn-dark">
+
+        </form>
+
+    </div>
+            
+</section>
+ 
+{% endblock Conteudo %}

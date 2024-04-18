@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block Titulo %}
+Sobre a empresa Senac Store
+{% endblock Titulo %}
+
+{% block Conteudo %}
+
+
+  <!-- Header-->
+  <header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Sobre a Empresa</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Saiba mais sobre a Senac Store!</p>
+        </div>
+    </div>
+</header>
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        {% lorem 5 p %}
+    </div>
+            
+</section>
+ 
+
+{% endblock Conteudo %}
