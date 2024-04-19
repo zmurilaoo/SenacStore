@@ -36,7 +36,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']    
 
 	                                # Endereços aceitos para o envio de formulários
-# CSRF_TRUSTED_ORIGINS  = ['*']
+ CSRF_TRUSTED_ORIGINS  = [' https://web-production-a55f.up.railway.app/ ']
 
 
 # Application definition
